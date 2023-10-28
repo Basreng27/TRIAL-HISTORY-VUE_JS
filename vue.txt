@@ -1,0 +1,7 @@
+-> Create App
+> npm create vue@latest
+> npm install
+> npm run dev
+
+-> run
+> npm run build

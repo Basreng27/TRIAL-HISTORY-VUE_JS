@@ -1,0 +1,14 @@
+body{
+    background-color: #243010 !important;
+    color: white !important;
+}
+
+.bn{
+    background-color: #2A3C24 !important;
+}
+
+.btnactive{
+    background: #87A330 !important;
+    border: 0 !important;
+    border-radius: 10%;
+}
