@@ -1,9 +1,11 @@
 <template>
   <div>
     <Header />
-    <div class="container">
+    
+    <div class="container-fluid main mb-5">
       <RouterView />
     </div>
+
     <Footer />
   </div>
 </template>

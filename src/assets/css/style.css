@@ -12,3 +12,19 @@ body{
     border: 0 !important;
     border-radius: 10%;
 }
+
+.subbtnactive{
+    background: white !important;
+}
+
+.main{
+    width: 85vw !important;
+}
+
+.bg-card{
+    background-color: #CAD593 !important;
+}
+
+.bg-card-header{
+    background-color: #A1C349 !important;
+}

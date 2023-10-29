@@ -15,6 +15,21 @@ const router = createRouter({
         component: () => import('../views/History.vue')
     },
     {
+      path: '/kategori',
+      name: 'kategori',
+        component: () => import('../views/master/Kategori.vue')
+    },
+    {
+      path: '/genre',
+      name: 'genre',
+        component: () => import('../views/master/Genre.vue')
+    },
+    {
+      path: '/history',
+      name: 'history',
+        component: () => import('../views/History.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: '404',
         component: () => import('../views/error/404.vue')

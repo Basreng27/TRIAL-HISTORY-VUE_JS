@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #2A3C24 !important;">
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-5" style="background-color: #2A3C24 !important;">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="#">Rekap History</a>
 
@@ -18,21 +18,13 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Link
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" :class="{ 'btnactive': menu === 'master' }" @click="changeMenu('master', $event)">
+                        Master
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <ul class="dropdown-menu" style="background-color: #A1C349 !important;">
+                        <li><router-link to="/kategori" class="dropdown-item" href="#" :class="{ 'subbtnactive': subMenu === 'kategori' }" @click="changeSubMenu('kategori', $event)">Kategori</router-link></li>
+                        <li><router-link to="/genre" class="dropdown-item" href="#" :class="{ 'subbtnactive': subMenu === 'genre' }" @click="changeSubMenu('genre', $event)">Genre</router-link></li>
                     </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Link</a>
                 </li>
             </ul>
 
@@ -50,21 +42,36 @@ import {
     RouterLink
 } from 'vue-router';
 import {
-    ref
+    ref, onMounted 
 } from 'vue';
 
 const app = {
     setup() {
         const menu = ref('dashboard');
+        const subMenu = ref('');
 
         const changeMenu = (data, event) => {
             event.preventDefault();
             menu.value = data;
+            localStorage.setItem('menu', menu.value);
         };
+        
+        const changeSubMenu = (data, event) => {
+            event.preventDefault();
+            subMenu.value = data;
+            localStorage.setItem('subMenu', subMenu.value);
+        };
+
+        onMounted(() => {
+            menu.value = localStorage.getItem('menu') ?? menu.value
+            subMenu.value = localStorage.getItem('subMenu') ?? subMenu.value
+        });
 
         return {
             menu,
             changeMenu,
+            subMenu,
+            changeSubMenu,
         };
     },
 };
