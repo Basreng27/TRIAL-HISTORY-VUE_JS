@@ -5,3 +5,8 @@
 
 -> run
 > npm run build
+
+-> config firebase
+> npm install firebase // jika ini eror
+> npm remove firebase
+> npm add firebase@^8.10.0
